@@ -55,7 +55,19 @@ def main() -> None:
     if "query_engine" not in st.session_state:
         st.session_state.query_engine = load_index()
 
-    st.title("Chat with BlogAI Assistant!!")
+    st.title("Chat with Snowflake Blog AI Assistant!")
+    # Add an image (replace 'path_to_image' with your image path or URL)
+    image_path = 'blog-ai.png'  # Example: 'images/clothing.jpg' or 'http://example.com/image.jpg'
+    st.image(image_path, caption='Fashion and Apparel')
+
+    st.markdown("""
+    👗 **Your Assistant**
+
+    All about Snowpark for Data Engineering Quickstarts from quickstarts.snowflake.com. Ask away your questions!
+    I built an LLM Chatbot that uses Retrieval Augmented Generation to answer questions about a particular blog or a list of blogs from snowflake technology.
+        
+    """)
+
     st.write("All about Snowpark for Data Engineering Quickstarts from quickstarts.snowflake.com. Ask away your questions!")
 
     if "messages" not in st.session_state:
