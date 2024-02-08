@@ -20,7 +20,7 @@ for windows activate environment
 ```
  .\env\Scripts\activate 
 ```
-
+for linux activate environment
 ```
 source /env/bin/activate
 ```
