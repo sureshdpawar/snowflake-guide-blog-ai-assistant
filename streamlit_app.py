@@ -12,7 +12,7 @@ logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
 
 ResponseType = Union[Generator[Any, None, None], Any, List, Dict]
 
-openai.api_key = "YOUR_OPENAI_API_KEY" 
+openai.api_key = "sk-"
 
 @st.cache_resource(show_spinner=False)  # type: ignore[misc]
 def load_index() -> Any:
@@ -32,10 +32,10 @@ def load_index() -> Any:
 
 def main() -> None:
     """Run the chatbot."""
-    
+
     if "query_engine" not in st.session_state:
         st.session_state.query_engine = load_index()
-        
+
     st.title("Chat with BlogAI Assistant!!")
     st.write("All about Snowpark for Data Engineering Quickstarts from quickstarts.snowflake.com. Ask away your questions!")
 
@@ -63,8 +63,19 @@ def main() -> None:
             message_placeholder = st.empty()
             print("Querying query engine API...")
             response = st.session_state.query_engine.query(prompt)
-            full_response = f"{response}"
-            print(full_response)
+            print(type(response))
+            print(dir(response))
+            if "Empty Response" in response.response:
+                # Handle the case where the response contains the specified text
+                print("Found the specified string or 'Empty Response'")
+                response = "I do not have answer for your query, please try other resources on our website"
+                full_response = f"{response}"
+            else:
+                # Handle other cases
+                print("The specified string or 'Empty Response' was not found")
+                full_response = f"{response}"
+
+            print("response from OpenAI", full_response)
             message_placeholder.markdown(full_response)
             st.session_state.messages.append({"role": "assistant", "content": full_response})
 

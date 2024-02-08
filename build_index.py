@@ -10,7 +10,7 @@ from llama_index.llms.openai import OpenAI
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
 
-openai.api_key = "YOUR_OPENAI_API_KEY" 
+openai.api_key = ""
 
 service_context = ServiceContext.from_defaults(llm=OpenAI())
 
@@ -32,7 +32,7 @@ def main() -> None:
     # Delete Storage Directory
     if os.path.exists(knowledge_base_dir):
         rmtree(knowledge_base_dir)
-    data_dir = os.path.join(base_dir, ".content", "blogs")
+    data_dir = os.path.join(base_dir, "content", "blogs")
     build_index(data_dir, knowledge_base_dir)
 
 
