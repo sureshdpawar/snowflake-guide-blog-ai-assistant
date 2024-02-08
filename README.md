@@ -1,4 +1,4 @@
-# Building a Blog AI assistant using Retrieval Augmented Generation
+# Building a Snowflake Blog AI assistant using Retrieval Augmented Generation
 
 ## Overview
 
@@ -8,4 +8,41 @@ By the end of this session, you will have an interactive web application deploye
 
 ## Step-By-Step Guide
 
-For prerequisites, environment setup, step-by-step guide and instructions, please refer to the [QuickStart Guide](https://quickstarts.snowflake.com/guide/build_rag_based_blog_ai_assistant_using_streamlit_openai_and_llamaindex/index.html?index=..%2F..index#0).
+For prerequisites, environment setup, step-by-step guide and instructions, 
+
+set the virtual env
+```
+python -m venv env
+```
+
+for windows activate environment
+
+```
+ .\env\Scripts\activate 
+```
+
+```
+source /env/bin/activate
+```
+
+install the dependancies
+
+```
+pip install -r requirements.txt
+```
+
+optional as i have already performed these steps
+
+```
+python data_pipeline.py
+python build_index.py
+```
+run the app
+
+```
+streamlit run streamlit_app.py
+```
+
+references:
+please refer to the https://quickstarts.snowflake.com/guide [](https://quickstarts.snowflake.com/guide/build_rag_based_blog_ai_assistant_using_streamlit_openai_and_llamaindex/index.html?index=..%2F..index#0).
+
