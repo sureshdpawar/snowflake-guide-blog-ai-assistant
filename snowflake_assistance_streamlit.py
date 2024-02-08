@@ -65,7 +65,12 @@ def main() -> None:
 
     All about Snowpark for Data Engineering Quickstarts from quickstarts.snowflake.com. Ask away your questions!
     I built an LLM Chatbot that uses Retrieval Augmented Generation to answer questions about a particular blog or a list of blogs from snowflake technology.
-        
+    
+    **How It Works:**
+    Just type your query, like below \n
+    how to load table into dataframe? \n
+    how to add security to dataframe?
+    
     """)
 
     st.write("All about Snowpark for Data Engineering Quickstarts from quickstarts.snowflake.com. Ask away your questions!")
